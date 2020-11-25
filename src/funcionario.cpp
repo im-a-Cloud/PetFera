@@ -43,6 +43,11 @@ int funcionario::get_id_funcionario(){
 	return this->id_funcionario;
 }
 
+string funcionario::get_nivel_seguranca(){
+  return "sem nível";
+}
+
+
 ostream& operator<<(ostream &o, funcionario const &func){ 
 	return func.print(o);
 }

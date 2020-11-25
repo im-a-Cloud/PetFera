@@ -14,6 +14,8 @@ string veterinario::get_cod_CRMV(){
 	return this-> cod_CRMV;
 }
 
+
+
 ostream& veterinario::print(ostream &o) const{
 	o << "-------------------Dados do funcionário-------------------" <<endl;
 	o << "O nome do funcionário é: " <<this->nome_funcionario <<endl;

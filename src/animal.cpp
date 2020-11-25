@@ -1,11 +1,11 @@
 #include "animal.hpp"
 
 animal::animal(){}
-
+//implementação do contrutor parametrizado
 animal::animal(string nome_especie, string nome_batismo, string classe, string sexo, string tipo, string risco_extincao, string dieta, string veterinario_responsavel, string tratador_responsavel):nome_especie(nome_especie),nome_batismo(nome_batismo),  classe(classe), sexo(sexo), tipo(tipo), risco_extincao(risco_extincao), dieta(dieta), veterinario_responsavel(veterinario_responsavel), tratador_responsavel(tratador_responsavel) {
 
 }
-
+//implementação dos sets
 void animal::set_nome_especie(string nome_especie){
 	this->nome_especie = nome_especie;
 }
@@ -35,6 +35,7 @@ void animal::set_veterinario_responsavel(string veterinario_responsavel){
 void animal::set_tratador_responsavel(string tratador_responsavel){
 	this->tratador_responsavel = tratador_responsavel;
 }
+//implementação dos gets
 string animal::get_nome_especie(){
 	return this->nome_especie;
 }
@@ -59,12 +60,14 @@ string animal::get_veterinario_responsavel(){
 string animal::get_tratador_responsavel(){
 	return this->tratador_responsavel;
 }
+//implementação da sobrecarga do operador << (extração)
 ostream& operator<<(ostream &o, animal const &ani){ 
 	return ani.print(o);
 }
 istream& operator>>(istream &i, animal &ani){ 
 	return ani.insercao(i);
 }
+//implementação do metodo print para imprimirr os animais
 ostream& animal::print(ostream &o) const{
 	o << "------------------Dados do animal------------------" <<endl;
 	o << " Especie do animal: " << this->nome_especie << endl;
@@ -78,7 +81,7 @@ ostream& animal::print(ostream &o) const{
   	o << " Tratador do animal: " << this-> tratador_responsavel <<endl;
 	return o;
 }
-
+//metodo de sobrecarga de inserção
 istream& animal::insercao(istream &i){
 	i >>nome_especie >> nome_batismo >> classe >> sexo >> tipo >> risco_extincao >> dieta >> veterinario_responsavel >> tratador_responsavel;
 	return i;

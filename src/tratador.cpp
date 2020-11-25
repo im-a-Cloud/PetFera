@@ -14,6 +14,8 @@ string tratador::get_nivel_seguranca(){
 	return this-> nivel_seguranca;
 }
 
+
+
 ostream& tratador::print(ostream &o) const{
 	o << "-------------------Dados do funcionário-------------------" <<endl;
 	o << "O nome do funcionário é: " <<this->nome_funcionario <<endl;
