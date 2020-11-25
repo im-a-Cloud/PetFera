@@ -21,6 +21,6 @@ private:
 	istream& insercao(istream &i);
   friend class mamifero_nativo;
   friend class mamifero_exotico;
-
+//declarando mamifero_exotico e mamifero_nativo como friends para poder acessar as funcções deles;
 };
 #endif

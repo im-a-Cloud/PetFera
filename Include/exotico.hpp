@@ -2,7 +2,7 @@
 #define EXOTICO_HPP
 
 #include "silvestre.hpp"
-
+//exotico herda de animal_silvestre o cod_ibama e tem como atributo o pais de origem do animal, que é uma string 
 class animal_exotico: public animal_silvestre
 {
 protected:

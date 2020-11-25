@@ -4,8 +4,6 @@
 #include <string>
 #include <iostream>
 
-//#include "tratador.hpp"
-
 using namespace std;
 
 class animal
@@ -51,10 +49,10 @@ public:
 	friend ostream& operator<< (ostream &o, animal const &ani);
 	friend istream& operator>> (istream &i, animal &ani);
 	
-	virtual	~animal();
+	virtual	~animal(); //
 
 private:
-	//metodos para fazer a inserção e o print com os operadores sobrecarregados
+	//metodos para fazer a inserção e o print com os operadores sobrecarregados, virtuais para as classes poderem ter 
 	virtual ostream& print(ostream &o) const = 0;
 	virtual istream& insercao(istream &i) = 0;
 };

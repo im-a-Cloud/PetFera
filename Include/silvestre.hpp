@@ -4,7 +4,7 @@
 #include <string>
 
 using namespace std;
-
+//criação da classe animal_silvestre
 class animal_silvestre
 {
 protected:

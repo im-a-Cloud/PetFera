@@ -25,7 +25,9 @@ public:
 	void set_CPF(int CPF);
 	void set_idade(int idade);
 	void set_id_funcionario(int id_funcionario);
-
+  
+  string get_nivel_seguranca();
+  
 	string get_nome_funcionario();
 	string get_sexo_funcionario();
 	string get_funcao();
