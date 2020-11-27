@@ -52,7 +52,7 @@ EXCLUDE =
 SHELL = /bin/sh
 DIRS = $(patsubst %:, %, $(shell ls -B -R -F ./ | grep ^./))
 DIRS := $(DIRS) .
-HEADERS := $(HEADERS) $(strip $(foreach dir, $(DIRS), $(patsubst %, $(dir),$(firstword $(wildcard $(dir)/*.h)))))
+HEADERS := $(HEADERS) $(strip $(foreach dir, $(DIRS), $(patsubst %, $(dir),$(firstword $(wildcard $(dir)/*.hpp)))))
 
 ifndef FILES
   FILES = $(patsubst .//%, ./%, $(foreach dir, $(DIRS), $(wildcard $(dir)/*.cpp)))
@@ -88,3 +88,4 @@ end:
 .PRECIOUS: link %.o
 .SILENT:
 #FIN
+
