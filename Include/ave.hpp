@@ -15,6 +15,8 @@ public:
 
   string get_formato_bico();
 
+  string registro_animal();
+
 	~ave();
 private:
 	ostream& print(ostream &o) const;

@@ -14,6 +14,8 @@ public:
 	void set_venenoso(string venenoso);
 	string get_venenoso();
 
+    string registro_animal();
+
 	~anfibio();
 private:
 	ostream& print(ostream &o) const;

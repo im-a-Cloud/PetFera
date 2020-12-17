@@ -18,6 +18,8 @@ public:
 	string get_venenoso();
 	string get_tipo_pele();
 
+	string registro_reptil();
+
 	~reptil();
 private:
 	ostream& print(ostream &o) const;

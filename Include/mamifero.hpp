@@ -11,9 +11,11 @@ public:
 	mamifero();
 	mamifero(string nome_especie, string nome_batismo, string classe, string sexo, string tipo, string risco_extincao, string dieta, string veterinario_responsavel, string tratador_responsavel, string cor_pelos);
 
-  void set_cor_pelos(string cor_pelos);
+  	void set_cor_pelos(string cor_pelos);
 
-  string get_cor_pelos();
+  	string get_cor_pelos();
+
+  	string registro_animal();
 
 	~mamifero();
 private:

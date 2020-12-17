@@ -15,9 +15,10 @@ protected:
 	int CPF;
 	int idade;
 	int id_funcionario;
+    string nivel_seguranca;
 public:
 	funcionario();
-	funcionario(string nome_funcionario, string sexo_funcionario, string funcao, int CPF, int idade, int id_funcionario);
+	funcionario(string nome_funcionario, string sexo_funcionario, string funcao, int CPF, int idade, int id_funcionario, string nivel_seguranca);
 
 	void set_nome_funcionario(string nome_funcionario);
 	void set_sexo_funcionario(string sexo_funcionario);
@@ -25,15 +26,17 @@ public:
 	void set_CPF(int CPF);
 	void set_idade(int idade);
 	void set_id_funcionario(int id_funcionario);
-  
-  string get_nivel_seguranca();
-  
+
 	string get_nome_funcionario();
 	string get_sexo_funcionario();
 	string get_funcao();
 	int get_CPF();
 	int get_idade();
 	int get_id_funcionario();
+
+    string get_nivel_seguranca();
+
+	string registro_funcionario();
 
 	friend ostream& operator<< (ostream &o, funcionario const &func);
 	friend istream& operator>> (istream &i, funcionario &func);

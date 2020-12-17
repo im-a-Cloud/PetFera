@@ -7,6 +7,7 @@ class animal_exotico: public animal_silvestre
 {
 protected:
 	string pais_origem; //país de origem do animal
+  
 public:
 	animal_exotico();
 	animal_exotico(string cod_ibama, string pais_origem);

@@ -9,11 +9,16 @@ private:
 	string cod_CRMV;
 public:
 	veterinario();
-	veterinario(string nome_funcionario, string sexo_funcionario, string funcao, int CPF, int idade, int id_funcionario, string cod_CRMV);
+	veterinario(string nome_funcionario, string sexo_funcionario, string funcao, int CPF, int idade, int id_funcionario, string nivel_seguranca, string cod_CRMV);
 
 	void set_cod_CRMV(string cod_CRMV);
 
 	string get_cod_CRMV();
+
+	string registro_funcionario();
+
+    string get_nivel_seguranca();
+
 
 	~veterinario();
 private:

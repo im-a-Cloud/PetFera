@@ -12,6 +12,8 @@ public:
 	anfibio_exotico();
 	anfibio_exotico(string nome_especie, string nome_batismo, string classe, string sexo, string tipo, string risco_extincao, string dieta, string veterinario_responsavel, string tratador_responsavel, string venenoso, string cod_ibama, string pais_origem);
 
+	string registro_animal();
+	
 	~anfibio_exotico();
 private:
 	ostream& print(ostream &o) const;

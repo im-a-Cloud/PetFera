@@ -16,9 +16,9 @@ protected:
 	string sexo; //sexo do animal.
 	string tipo; //se ele é um nativo, exotico, domestico.
 	string risco_extincao; //se o animal está ou não em risco de extinção; //se ele é perigoso de alguma forma
-  string dieta; // oque ele come
-  string veterinario_responsavel;
-  string tratador_responsavel;
+	string dieta; // oque ele come
+	string veterinario_responsavel;
+	string tratador_responsavel;
 
 public:
 	animal();
@@ -31,19 +31,24 @@ public:
 	string get_sexo();
 	string get_tipo();
 	string get_risco();
-  string get_dieta();
-  string get_veterinario_responsavel();
-  string get_tratador_responsavel();
+	string get_dieta();
+	string get_veterinario_responsavel();
+	string get_tratador_responsavel();
 
+	string registro_animal();
+  void alterar_animal();
+    
 	void set_nome_especie(string nome_especie);
 	void set_nome_batismo(string nome_batismo);
 	void set_classe(string classe);
 	void set_sexo(string sexo);
 	void set_tipo(string tipo);
 	void set_risco(string risco);
-  void set_dieta(string dieta);
-  void set_veterinario_responsavel(string veterinario_responsavel);
-  void set_tratador_responsavel(string tratador_responsavel);
+	void set_dieta(string dieta);
+	void set_veterinario_responsavel(string veterinario_responsavel);
+	void set_tratador_responsavel(string tratador_responsavel);
+
+
 
 	//sobrecarga dos operadores de extração e insersção
 	friend ostream& operator<< (ostream &o, animal const &ani);
