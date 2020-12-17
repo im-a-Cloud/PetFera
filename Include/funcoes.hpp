@@ -3,6 +3,8 @@
 
 #include <algorithm>
 #include <vector>
+#include <fstream>
+#include <sstream>
 
 #include "animal.hpp"
 
@@ -33,10 +35,10 @@
 using namespace std;
 
 
-void cadastrar_animal(string tipo_animal, string classe_animal);
-void alterar_dados_animal(string nome_animal, string nome_batismo);
+void cadastrar_animal(string classe_animal, string tipo_animal);
+void alterar_dados_animal(string classe_animal, string nome_batismo);
 void remover_animal(string nome_animal, string nome_batismo);
-void listar_animais_por_tipo(string tipo_animal);
+void listar_animais_por_classe(string classe_animal);
 
 void cadastrar_funcionario(string funcao_funcionario);
 void mostrar_funcionarios();
@@ -45,8 +47,27 @@ bool checa_veterinario(string nome_vet);
 bool checa_tratador(string nome_trat);
 bool checa_nivel_seguranca(string nome_trat, string nivel_nescessario);
 
+void carregar_animais();
+void carregar_funcionarios();
+
+void salvar_funcionario();
+
+void salvar_animal(); //debug
+
+void menu();
+
+void menu_opcoes();
+
+string converte_num_para_classe_animal(int opcao);
+
+string converte_num_para_tipo_animal(int opcao);
+
 string deixar_minusculo(string texto);
 
 int code_to_num(string code);
+
+void listar_animais_por_tratador(string nome_tratador);
+
+void listar_todos_animais();
 
 #endif
