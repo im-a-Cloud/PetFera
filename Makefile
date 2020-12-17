@@ -30,7 +30,7 @@
 # Which flags should I use?
 FLAGS = -std=c++11
 # What is the name of the executable file?
-EXENAME = run
+EXENAME = ./bin/run
 # Where should I put all the compiled .o files? (add a slash at the end)
 TARGET = target/
 
@@ -39,9 +39,9 @@ TARGET = target/
 ##=====================================================================================##
 
 # Where are the header files? (add a slash at the end, Separate dirs with a whitespace)
-HEADERS =
+HEADERS = ./Include/
 # What are the file names? (Use paths from basedir. Separate filenames with a whitespace) 
-FILES =
+FILES = ./src/anfibio.cpp ./src/anfibio_exotico.cpp ./src/anfibio_nativo.cpp ./src/animal.cpp ./src/ave.cpp ./src/ave_exotica.cpp ./src/ave_nativa.cpp ./src/exotico.cpp ./src/funcionario.cpp ./src/funcoes.cpp ./src/main.cpp ./src/mamifero.cpp ./src/mamifero_exotico.cpp ./src/mamifero_nativo.cpp ./src/nativo.cpp ./src/reptil.cpp ./src/reptil_exotico.cpp ./src/reptil_nativo.cpp ./src/silvestre.cpp ./src/tratador.cpp ./src/veterinario.cpp
 # Should I exclude some files from the build? (same rules apply)
 EXCLUDE =
 
@@ -83,7 +83,7 @@ link:	$(patsubst %.cpp, %.o, $(FILELIST))
 	$(info * [Creating $(TARGET)$@ from $<])
 	$(CXX) -c $(CXXFLAGS) $(FLAGS) $< -o $(TARGET)$@ $(addprefix -I,$(HEADERS))
 end:
-	$(info * [Build successful. $(EXENAME) was created])
+$(info * [Build successful. $(EXENAME) was created])
 .PHONY: all init clean mkdir link end
 .PRECIOUS: link %.o
 .SILENT:
