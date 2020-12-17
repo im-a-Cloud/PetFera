@@ -2,8 +2,8 @@
 
 funcionario::funcionario(){}
 
-funcionario::funcionario(string nome_funcionario, string sexo_funcionario, string funcao, int CPF, int idade, int id_funcionario): 
-nome_funcionario(nome_funcionario), sexo_funcionario(sexo_funcionario), funcao(funcao), CPF(CPF), idade(idade), id_funcionario(id_funcionario){}
+funcionario::funcionario(string nome_funcionario, string sexo_funcionario, string funcao, int CPF, int idade, int id_funcionario, string nivel_seguranca): 
+nome_funcionario(nome_funcionario), sexo_funcionario(sexo_funcionario), funcao(funcao), CPF(CPF), idade(idade), id_funcionario(id_funcionario),nivel_seguranca(nivel_seguranca){}
 
 void funcionario::set_nome_funcionario(string nome_funcionario){
 	this->nome_funcionario = nome_funcionario;
@@ -55,6 +55,15 @@ ostream& operator<<(ostream &o, funcionario const &func){
 istream& operator>>(istream &i, funcionario &func){ 
 	return func.insercao(i);
 }
+
+/*
+string registro_funcionario(){
+	string data_save;
+	string separador = ";";
+	data_save = nome_funcionario + separador + sexo_funcionario + separador + funcao + separador + to_string(CPF) + separador + to_string(idade) + separador + to_string(id_funcionario);
+	return data_save;
+}
+*/
 
 ostream& funcionario::print(ostream &o) const{
   /*

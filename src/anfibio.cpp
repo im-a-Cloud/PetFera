@@ -16,6 +16,13 @@ string anfibio::get_venenoso(){
 	return this->venenoso;
 }
 
+string anfibio::registro_animal(){
+	string data_save;
+	string separador = ";";
+	data_save = nome_especie + separador + nome_batismo + separador + classe + separador + sexo + separador + tipo + separador+ risco_extincao + separador + dieta + separador + veterinario_responsavel + separador + tratador_responsavel + separador + venenoso;
+	return data_save;
+}
+
 ostream& anfibio::print(ostream &o) const{
 	o << "------------------Dados do animal------------------" <<endl;
 	o << " Especie do animal: " << this->nome_especie << endl;

@@ -18,6 +18,14 @@ string reptil::get_venenoso(){
 string reptil::get_tipo_pele(){
 	return this->tipo_pele;
 }
+
+string reptil::registro_reptil(){
+	string data_save;
+	string separador = ";";
+	data_save = nome_especie + separador + nome_batismo + separador + classe + separador + sexo + separador + tipo + separador+ risco_extincao + separador + dieta + separador + veterinario_responsavel + separador + tratador_responsavel + separador + venenoso + separador + tipo_pele;
+	return data_save;
+}
+
 ostream& reptil::print(ostream &o) const{
 	o << "------------------Dados do animal------------------" <<endl;
 	o << " Especie do animal: " << this->nome_especie << endl;

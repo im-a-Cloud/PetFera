@@ -8,6 +8,12 @@ reptil_exotico::reptil_exotico(string nome_especie, string nome_batismo, string 
 
 }
 
+string reptil_exotico::registro_animal(){
+	string data_save;
+	string separador = ";";
+	data_save = nome_especie + separador + nome_batismo + separador + classe + separador + sexo + separador + tipo + separador + risco_extincao + separador + dieta + separador + veterinario_responsavel + separador + tratador_responsavel + separador + venenoso + separador + tipo_pele + separador + cod_ibama + separador + separador + pais_origem;
+	return data_save;
+}
 
 ostream& reptil_exotico::print(ostream &o)const {
 	o << "------------------Dados do animal------------------" <<endl;
@@ -15,7 +21,7 @@ ostream& reptil_exotico::print(ostream &o)const {
 	o << " Nome do animal: " << this->nome_batismo << endl;
 	o << " Classe do animal: "<< this-> classe << endl;
 	o << " Sexo do animal: " << this->sexo << endl;
-	o << " Tipo(exotico, exotico, domestico):" << this->tipo << endl;
+	o << " Tipo(nativo, exotico, domestico):" << this->tipo << endl;
 	o << " Corre risco de extinção: " << this->risco_extincao << endl;
    	o << " A dieta do animal consiste em :" <<this->dieta <<endl;
 	o << " Veterinário responsável pelo animal: " << this->veterinario_responsavel <<endl;

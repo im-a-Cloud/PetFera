@@ -2,7 +2,7 @@
 
 tratador::tratador(){}
 
-tratador::tratador(string nome_funcionario, string sexo_funcionario, string funcao, int CPF, int idade, int id_funcionario, string nivel_seguranca):funcionario(nome_funcionario, sexo_funcionario, funcao, CPF, idade, id_funcionario), nivel_seguranca(nivel_seguranca){
+tratador::tratador(string nome_funcionario, string sexo_funcionario, string funcao, int CPF, int idade, int id_funcionario, string nivel_seguranca):funcionario(nome_funcionario, sexo_funcionario, funcao, CPF, idade, id_funcionario, nivel_seguranca){
 
 }
 
@@ -14,7 +14,12 @@ string tratador::get_nivel_seguranca(){
 	return this-> nivel_seguranca;
 }
 
-
+string tratador::registro_funcionario(){
+	string data_save;
+	string separador = ";";
+	data_save = nome_funcionario + separador + sexo_funcionario + separador + funcao + separador + to_string(CPF) + separador + to_string(idade) + separador + to_string(id_funcionario) +  separador + nivel_seguranca;
+	return data_save;
+}
 
 ostream& tratador::print(ostream &o) const{
 	o << "-------------------Dados do funcionário-------------------" <<endl;

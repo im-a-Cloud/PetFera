@@ -8,6 +8,13 @@ mamifero_exotico::mamifero_exotico(string nome_especie, string nome_batismo, str
 
 }
 
+string mamifero_exotico::registro_animal(){
+	string data_save;
+	string separador = ";";
+	data_save = nome_especie + separador + nome_batismo + separador + classe + separador + sexo + separador + tipo + separador + risco_extincao + separador +  dieta + separador + veterinario_responsavel + separador + tratador_responsavel + separador + cor_pelos + separador + cod_ibama + separador + pais_origem ;
+	return data_save;
+}
+
 ostream& mamifero_exotico::print(ostream &o)const {
 	o << "------------------Dados do animal------------------" <<endl;
 	o << " Especie do animal: " << this->nome_especie << endl;

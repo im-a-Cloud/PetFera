@@ -8,6 +8,12 @@ ave_nativo::ave_nativo(string nome_especie, string nome_batismo, string classe, 
 
 }
 
+string ave_nativo::registro_animal(){
+	string data_save;
+	string separador = ";";
+	data_save = nome_especie + separador + nome_batismo + separador + classe + separador + sexo + separador + tipo + separador + risco_extincao + separador + dieta + separador + veterinario_responsavel + separador + tratador_responsavel + separador + formato_bico + separador + cod_ibama + separador + origem + auto_ibama;
+	return data_save;
+}
 
 ostream& ave_nativo::print(ostream &o)const {
 	o << "------------------Dados do animal------------------" <<endl;

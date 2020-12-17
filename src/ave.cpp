@@ -13,6 +13,13 @@ string ave::get_formato_bico(){
 	return this->formato_bico;
 }
 
+string ave::registro_animal(){
+	string data_save;
+	string separador = ";";
+	data_save = nome_especie + separador + nome_batismo + separador + classe + separador + sexo + separador + tipo + separador + risco_extincao + separador + dieta + separador + veterinario_responsavel + separador + tratador_responsavel + separador + formato_bico;
+	return data_save;
+}
+
 ostream& ave::print(ostream &o) const{
 	o << "------------------Dados do animal------------------" <<endl;
 	o << " Especie do animal: " << this->nome_especie << endl;

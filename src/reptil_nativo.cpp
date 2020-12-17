@@ -8,6 +8,14 @@ reptil_nativo::reptil_nativo(string nome_especie, string nome_batismo, string cl
 
 }
 
+
+string reptil_nativo::registro_animal(){
+	string data_save;
+	string separador = ";";
+	data_save = nome_especie + separador + nome_batismo + separador + classe + separador + sexo + separador + tipo + separador + risco_extincao + separador + dieta + separador + veterinario_responsavel + separador + tratador_responsavel + separador + venenoso + separador + tipo_pele + separador + cod_ibama + separador + origem + separador + auto_ibama;
+	return data_save;
+}
+
 ostream& reptil_nativo::print(ostream &o)const {
 	o << "------------------Dados do animal------------------" <<endl;
 	o << " Especie do animal: " << this->nome_especie << endl;
