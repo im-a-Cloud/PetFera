@@ -79,7 +79,6 @@ void salvar_funcionario(){
 void salvar_animal(){
   cout<< "Salvando animais" << endl;
 
-  cout<< vetor_animais.size() << endl;
 
   ofstream arquivo_animais;
 	arquivo_animais.open("./animais_save.csv");
@@ -94,7 +93,6 @@ void salvar_animal(){
   int contador = 0;
   while(contador < vetor_animais.size()){
 
-    cout<<vetor_animais[contador]->get_classe()<<" "<<vetor_animais[contador]->get_tipo();
     if(vetor_animais[contador]->get_classe()=="ave"){
         if(vetor_animais[contador]->get_tipo()== "domestico"){
         ave& t = dynamic_cast<ave&>(*vetor_animais[contador]);
@@ -220,7 +218,7 @@ void carregar_funcionarios(){
     if(funcao == "veterinario"){
       string cod_CRMV;
       getline(ip,cod_CRMV,'\n');
-      shared_ptr <funcionario> funcionario_novo = std::make_shared<veterinario>( veterinario(nome_funcionario, sexo_funcionario, funcao, CPF, idade, id_funcionario, cod_CRMV,"não tem") );
+      shared_ptr <funcionario> funcionario_novo = std::make_shared<veterinario>( veterinario(nome_funcionario, sexo_funcionario, funcao, CPF, idade, id_funcionario, cod_CRMV, cod_CRMV) );
       vetor_funcionarios.push_back(funcionario_novo);
     } else if(funcao == "tratador"){
       string nivel_seguranca;
@@ -513,7 +511,6 @@ void cadastrar_animal(string classe_animal, string tipo_animal){
 	string auto_ibama;
 	string pais_origem;
 
-
 	string formato_bico;
 	string cor_pelo;
 	string venenoso;
@@ -725,15 +722,16 @@ void cadastrar_animal(string classe_animal, string tipo_animal){
         }
         }
         }
-        else if (classe_animal == "reptil")
+        if (classe_animal == "reptil"){
+        cout <<"O animal é venenoso?" <<endl;
+        getline(cin, venenoso);
+
+        cout <<"Como é a pele do animal?(Placas, Escamas, Carapaça)" <<endl;
+        getline(cin, tipo_pele);
         {
         if(venenoso == "sim"){
           if(checa_nivel_seguranca(nome_tratador,"vermelho") == true){
-				cout <<"O animal é venenoso?" <<endl;
-				getline(cin, venenoso);
 
-				cout <<"Como é a pele do animal?(Placas, Escamas, Carapaça)" <<endl;
-				getline(cin, venenoso);
 				if (tipo_animal == "domestico")
 				{
 					shared_ptr <reptil> reptil_domestico = make_shared<reptil>(
@@ -776,8 +774,6 @@ void cadastrar_animal(string classe_animal, string tipo_animal){
 		}
         if(venenoso == "não" || venenoso=="nao"){
         if(checa_nivel_seguranca(nome_tratador, "azul") == true){
-				cout <<"Como é a pele do animal?(Placas, Escamas, Carapaça)" <<endl;
-				getline(cin, venenoso);
 				if (tipo_animal == "domestico")
 				{
 					shared_ptr <reptil> reptil_domestico = make_shared<reptil>(
@@ -819,6 +815,7 @@ void cadastrar_animal(string classe_animal, string tipo_animal){
             }
           }
         }
+    }
   	cout <<"Animal cadastrado com sucesso" <<endl;
     salvar_animal();
 }
@@ -860,7 +857,7 @@ void cadastrar_funcionario(string funcao_funcionario){
 
 		getline(cin, cod_CRMV);
 
-		shared_ptr <funcionario> veterinario_novo = make_shared<veterinario>(veterinario(nome_funcionario, sexo_funcionario, funcao_funcionario, CPF, idade, id_funcionario, cod_CRMV,"não tem"));
+		shared_ptr <funcionario> veterinario_novo = make_shared<veterinario>(veterinario(nome_funcionario, sexo_funcionario, funcao_funcionario, CPF, idade, id_funcionario, cod_CRMV,cod_CRMV));
 		vetor_funcionarios.push_back(veterinario_novo);
 	}
 	else if (funcao_funcionario == "tratador")
@@ -889,8 +886,9 @@ void listar_animais_por_classe(string classe_animal){
 		if (vetor_animais[posicao]->get_classe() == classe_animal)
 		{
 			cout << *vetor_animais[posicao] <<endl;
-			posicao++;
+			
 		}
+    posicao++;
 	}
 }
 //lista todos os funcionarios 
@@ -1072,8 +1070,8 @@ void menu(){
         getline(cin, nome_batismo);
         alterar_dados_animal(especie_animal, nome_batismo);
         cout <<"Deseja fazer mais uma operação? entre com um dos números passados antes" <<endl;
-        menu_opcoes();
         cin.ignore();
+        menu_opcoes();
         cin >>opcao;
         break;
   }
