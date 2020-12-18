@@ -1,5 +1,5 @@
 
-Projeto Final de LP
+Projeto Final de LPI
 Pet Fera
 
 Componetes:
@@ -24,6 +24,11 @@ Durante a implementação do seu programa, faça uso os conceitos e boas prátic
 
 Considere ainda que o programa deverá manter em arquivo os dados processados, ou seja, sempre que o programa iniciar o mesmo deverá carregar os dados (se existirem) presentes nos arquivos correspondentes. O programa deverá utilizar como entrada dois arquivos no formato CSV (Comma-Separated Values), um com os dados básicos dos animais a serem cadastrados e outro com os dados dos funcionários (veterinários e tratadores) da Pet Fera.
 
+Oque tem de novo?
+
+Bom implementamos as funções de alterar e de remover animais, também fizemos funções para listar animais por tipo e pelo tratador responsável, listar os funcionários
+
+
 Operações suportadas
 
 1 - Registrar um novo funcionário
@@ -43,3 +48,18 @@ Operações suportadas
 8 - Listar todos os animais
 
 Para executar o programa: vá na pasta bin e digite ./petfera
+
+
+Comentários/Dificuldades
+
+As maiores dificuldades foram em lidar com os ponteiros inteligentes, fazer a ligação com composição que você mencionou, por isso optamos por algo mais simples desde o começo, mas de longe foi a de fazer o makefile e as bibliotecas que nem conseguimos fazer, também que o senhor se equivocou em certos pontos da correção como na parte de classe abstrata e eu até falei sobre no vídeo e que quase todos os meus e-mails não foram respondidos, oque dificultou muito
+
+
+Vídeo 
+
+
+https://youtu.be/A7XbDkhLwtw
+
+
+
+
