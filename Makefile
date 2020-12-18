@@ -1,91 +1,83 @@
-############################################################################
-# Copyright 2009 Tomer Shiri github@shiri.info                             #
-#                                                                          #
-# Licensed under the Apache License, Version 2.0 (the "License");          #
-# you may not use this file except in compliance with the License.         #
-# You may obtain a copy of the License at                                  #
-#                                                                          #
-# http://www.apache.org/licenses/LICENSE-2.0                               #
-#                                                                          #
-# Unless required by applicable law or agreed to in writing, software      #
-# distributed under the License is distributed on an "AS IS" BASIS,        #
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. #
-# See the License for the specific language governing permissions and      #
-# limitations under the License.                                           #
-############################################################################
+# Compiler
+CC = g++
 
-############################################################################
-# Instructions:                                                            #
-# Put this makefile in the main project's directory. (./)                  #
-# It will compile and link every cpp file in that directory                # 
-# and in all of its subdirectories. (recursively)                          #
-# Header files will be added to the build path automatically.              #
-# Enjoy.                                                                   #
-############################################################################
+INC = ./Include
+SRC = ./src
+OBJ = ./build
+BIN = ./bin
 
-##=====================================================================================##
-## Customizable Section: change these variables to suit your program.                  ##
-##=====================================================================================##
+CPPFLAGS = -O0 -Wall -pedantic -std=c++11 -I$(INC)
+OBJECTS = $(OBJ)/anfibio.o $(OBJ)/anfibio_exotico.o $(OBJ)/anfibio_nativo.o $(OBJ)/animal.o $(OBJ)/ave.o $(OBJ)/ave_exotica.o  $(OBJ)/ave_nativa.o $(OBJ)/exotico.o $(OBJ)/funcionario.o $(OBJ)/funcoes.o $(OBJ)/mamifero.o $(OBJ)/mamifero_exotico.o $(OBJ)/mamifero_nativo.o $(OBJ)/nativo.o $(OBJ)/reptil.o $(OBJ)/reptil_exotico.o $(OBJ)/reptil_nativo.o $(OBJ)/silvestre.o $(OBJ)/tratador.o $(OBJ)/veterinario.o $(OBJ)/main.o 
+PROG = $(BIN)/petfera
 
-# Which flags should I use?
-FLAGS = -std=c++11
-# What is the name of the executable file?
-EXENAME = ./bin/run
-# Where should I put all the compiled .o files? (add a slash at the end)
-TARGET = target/
+all: $(OBJECTS) $(BIN)/petfera
+	$(CC) $(CPPFLAGS) -o $(PROG) $(OBJECTS)
 
-##=====================================================================================##
-## Optional Section: If you'll leave it blank, I'll search for your .h and .cpp files. ##
-##=====================================================================================##
+$(OBJ)/anfibio.o: $(INC)/anfibio.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/anfibio.cpp -o $@
 
-# Where are the header files? (add a slash at the end, Separate dirs with a whitespace)
-HEADERS = ./Include/
-# What are the file names? (Use paths from basedir. Separate filenames with a whitespace) 
-FILES = ./src/anfibio.cpp ./src/anfibio_exotico.cpp ./src/anfibio_nativo.cpp ./src/animal.cpp ./src/ave.cpp ./src/ave_exotica.cpp ./src/ave_nativa.cpp ./src/exotico.cpp ./src/funcionario.cpp ./src/funcoes.cpp ./src/main.cpp ./src/mamifero.cpp ./src/mamifero_exotico.cpp ./src/mamifero_nativo.cpp ./src/nativo.cpp ./src/reptil.cpp ./src/reptil_exotico.cpp ./src/reptil_nativo.cpp ./src/silvestre.cpp ./src/tratador.cpp ./src/veterinario.cpp
-# Should I exclude some files from the build? (same rules apply)
-EXCLUDE =
+$(OBJ)/anfibio_exotico.o: $(INC)/anfibio_exotico.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/anfibio_exotico.cpp -o $@
 
-##=====================================================================================##
-## Don't edit below this line, you know its bad for you.                               ##
-##=====================================================================================##
+$(OBJ)/anfibio_nativo.o: $(INC)/anfibio_nativo.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/anfibio_nativo.cpp -o $@
 
-SHELL = /bin/sh
-DIRS = $(patsubst %:, %, $(shell ls -B -R -F ./ | grep ^./))
-DIRS := $(DIRS) .
-HEADERS := $(HEADERS) $(strip $(foreach dir, $(DIRS), $(patsubst %, $(dir),$(firstword $(wildcard $(dir)/*.hpp)))))
+$(OBJ)/animal.o: $(INC)/animal.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/animal.cpp -o $@
 
-ifndef FILES
-  FILES = $(patsubst .//%, ./%, $(foreach dir, $(DIRS), $(wildcard $(dir)/*.cpp)))
-endif
+$(OBJ)/ave.o: $(INC)/ave.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/ave.cpp -o $@
 
-ifndef EXCLUDE
-  FILELIST = $(FILES)
-else
-  FILELIST = $(foreach filename, $(EXCLUDE),$(filter-out ./$(filename), $(FILES)))
-endif
+$(OBJ)/ave_exotica.o: $(INC)/ave_exotica.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/ave_exotica.cpp -o $@
 
-all: init clean mkdir link end
-init:
-	$(info * [Starting build])
-	$(info * [found header at:$(HEADERS)])
-	$(info * [found cpp files:$(FILELIST)])
+$(OBJ)/ave_nativa.o: $(INC)/ave_nativa.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/ave_nativa.cpp -o $@
+
+$(OBJ)/exotico.o: $(INC)/exotico.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/exotico.cpp -o $@
+
+$(OBJ)/funcionario.o: $(INC)/funcionario.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/funcionario.cpp -o $@
+
+$(OBJ)/funcoes.o: $(INC)/funcoes.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/funcoes.cpp -o $@
+
+$(OBJ)/mamifero.o: $(INC)/mamifero.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/mamifero.cpp -o $@
+
+$(OBJ)/mamifero_exotico.o: $(INC)/mamifero_exotico.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/mamifero_exotico.cpp -o $@
+
+$(OBJ)/mamifero_nativo.o: $(INC)/mamifero_nativo.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/mamifero_nativo.cpp -o $@
+
+$(OBJ)/nativo.o: $(INC)/nativo.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/nativo.cpp -o $@
+
+$(OBJ)/reptil.o: $(INC)/reptil.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/reptil.cpp -o $@
+
+$(OBJ)/reptil_nativo.o: $(INC)/reptil_nativo.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/reptil_nativo.cpp -o $@
+
+$(OBJ)/reptil_exotico.o: $(INC)/reptil_exotico.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/reptil_exotico.cpp -o $@
+
+$(OBJ)/silvestre.o: $(INC)/silvestre.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/silvestre.cpp -o $@
+
+$(OBJ)/tratador.o: $(INC)/tratador.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/tratador.cpp -o $@
+
+$(OBJ)/veterinario.o: $(INC)/veterinario.hpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/veterinario.cpp -o $@
+
+$(OBJ)/main.o: $(SRC)/main.cpp
+	$(CC) $(CPPFLAGS) -c $(SRC)/main.cpp -o $@	
+
+$(BIN)/petfera: $(OBJ)/main.o
+	$(CC) $(CPPFLAGS) $(OBJECTS) -o $@
+
 clean:
-	$(info * [Cleaning old build])
-	$(RM) -r -f $(addprefix $(TARGET), $(filter-out ./, $(dir $(FILELIST))))
-mkdir:
-	$(info * [Creating target directories])
-	mkdir -p $(TARGET) $(addprefix $(TARGET), $(filter-out ./, $(dir $(FILELIST))))
-link:	$(patsubst %.cpp, %.o, $(FILELIST))
-	$(info * [Linking])
-	$(CXX) -o $(EXENAME) $(addprefix $(TARGET), $^) $(CXXFLAGS) $(FLAGS) $(addprefix -I,$(HEADERS))
-#compile
-%.o : %.cpp
-	$(info * [Creating $(TARGET)$@ from $<])
-	$(CXX) -c $(CXXFLAGS) $(FLAGS) $< -o $(TARGET)$@ $(addprefix -I,$(HEADERS))
-end:
-$(info * [Build successful. $(EXENAME) was created])
-.PHONY: all init clean mkdir link end
-.PRECIOUS: link %.o
-.SILENT:
-#FIN
-
+	rm -f $(PROG) $(OBJECTS) 
