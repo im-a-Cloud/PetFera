@@ -1,9 +1,11 @@
 
 Projeto Final de LP
 Pet Fera
+
 Componetes:
 
 Álvaro Prudêncio Aráujo
+
 Bruno Da Fonseca Dumaresq
 
 Professor:
@@ -11,9 +13,11 @@ Professor:
 Silvio Costa Sampaio
 
 Objetivo
+
 O objetivo deste trabalho é implementar um programa de cadastro de animais para a loja de animais silvestres Pet Fera.
 
 Tarefa
+
 A tarefa central deste Projeto de Programação é desenvolver um programa em C++ para controlaro cadastro de animais da Pet Fera, segundo as características descritas anteriormente. Para resolver o problema, você deverá implementar um modelo de classes que reflita a situação descrita.
 
 Durante a implementação do seu programa, faça uso os conceitos e boas práticas de Programação Orientação a Objetos aprendidas na disciplina. Você também deverá utilizar o Tipo Abstrato de Dados map disponível na STL para manter a lista de animais cadastrados, bem como possivelmente as listas de veterinários e tratadores.
