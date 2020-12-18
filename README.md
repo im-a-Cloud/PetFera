@@ -27,3 +27,5 @@ Operações suportadas
 6 - Alterar os dados de um animal
 7 - Listar os animais sob responsabildiade de um tratador
 8 - Listar todos os animais"
+
+Para executar o programa: vá na pasta bin e digite ./petfera
